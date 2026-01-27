@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michaelson Emmanuel | Premium Sourcing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         /* Modern Minimalist Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #ffffff; 
-            color: #1a1a1a; 
-            line-height: 1.6;
-            overflow-x: hidden;
+        
+        :root {
+            --white: #FFFFFF;
+            --beige-light: #FAF9F6; /* Off-white/Cream */
+            --beige-mid: #F2EBE3;   /* Classic Beige */
+            --beige-dark: #C2B280;  /* Earthy Gold/Beige for accents */
+            --text-main: #2D2926;   /* Soft charcoal, not harsh black */
+            --text-sub: #8C8276;    /* Muted taupe for descriptions */
         }
 
-        /* Monochromatic Color Palette */
-        :root {
-            --black: #000000;
-            --white: #ffffff;
-            --light-gray: #f9f9f9;
-            --accent-gray: #666666;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--white); 
+            color: var(--text-main); 
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -31,93 +33,105 @@
             justify-content: space-between;
             align-items: center;
             background: var(--white);
-            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo img {
-            height: 60px; /* Increased size for visibility */
+            height: 55px;
             width: auto;
             display: block;
         }
         .nav-links a {
             text-decoration: none;
-            color: var(--black);
+            color: var(--text-main);
             margin-left: 2.5rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 400;
-            transition: 0.3s;
+            letter-spacing: 3px;
+            transition: 0.4s;
         }
-        .nav-links a:hover { color: var(--accent-gray); }
+        .nav-links a:hover { color: var(--beige-dark); }
 
         /* Hero Section */
         .hero {
-            height: 70vh;
+            height: 85vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--beige-light); /* Beige Background */
             padding: 0 5%;
-            background-color: var(--light-gray);
         }
-        .hero-content { max-width: 900px; }
+        .hero-content { max-width: 1000px; }
         .hero h1 {
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            line-height: 0.9;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -2px;
+            font-family: 'Playfair Display', serif; /* Elegant serif for luxury feel */
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            line-height: 1.1;
+            font-weight: 400;
+            color: var(--text-main);
         }
         .sourcing-tag {
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 25px; /* Maximum premium spacing */
+            letter-spacing: 28px; /* Extra-wide premium spacing */
             display: block;
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: var(--accent-gray);
-            padding-left: 5px;
+            margin-top: 25px;
+            font-size: 1rem;
+            color: var(--beige-dark);
+            margin-right: -28px; /* Counter-acting the last letter's spacing */
         }
 
-        /* Services Grid - Asymmetrical */
+        /* Services Grid - Using Beige Accents */
         .services {
-            padding: 8rem 5%;
+            padding: 10rem 5%;
+            background-color: var(--white);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            gap: 8rem;
         }
         .service-item {
-            padding: 3rem;
-            border-top: 1px solid var(--black);
+            padding: 4rem 2rem;
+            background-color: var(--beige-light); /* Subtle contrast */
+            border-bottom: 2px solid var(--beige-mid);
         }
-        .service-item.offset { margin-top: 6rem; }
+        .service-item.offset { margin-top: 8rem; }
         .service-item h3 {
-            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            font-weight: 700;
+            font-style: italic;
         }
-        .service-item p { color: var(--accent-gray); font-size: 1.1rem; }
+        .service-item p { 
+            color: var(--text-sub); 
+            font-size: 1.1rem; 
+            max-width: 400px;
+        }
 
         /* Footer */
         footer {
-            padding: 6rem 5%;
-            background: var(--black);
-            color: var(--white);
+            padding: 8rem 5%;
+            background: var(--beige-mid);
+            color: var(--text-main);
             text-align: center;
         }
         .footer-logo {
-            letter-spacing: 12px;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            letter-spacing: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
             display: block;
             text-transform: uppercase;
+            font-weight: 700;
         }
-        footer p { font-size: 0.8rem; opacity: 0.6; }
+        footer p { font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px;}
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .services { grid-template-columns: 1fr; gap: 2rem; }
+            .services { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 5%; }
             .service-item.offset { margin-top: 0; }
-            .hero h1 { font-size: 3.5rem; }
-            .sourcing-tag { letter-spacing: 10px; font-size: 0.8rem; }
+            .hero h1 { font-size: 3rem; }
+            .sourcing-tag { letter-spacing: 12px; font-size: 0.7rem; margin-right: -12px; }
+            .nav-links { display: none; } /* Standard for mobile simplicity */
         }
     </style>
 </head>
@@ -145,18 +159,18 @@
         <section id="services" class="services">
             <div class="service-item">
                 <h3>Global Export</h3>
-                <p>Delivering high-quality apparel manufacturing and sourcing solutions to international markets with precision and reliability.</p>
+                <p>Curating exceptional apparel manufacturing and sourcing solutions for the discerning international market.</p>
             </div>
             <div class="service-item offset">
-                <h3>Fabric Quality</h3>
-                <p>We source only the finest textiles, ensuring every garment meets the highest standards of durability and texture.</p>
+                <h3>Textile Mastery</h3>
+                <p>We provide unparalleled access to the finest cotton, linen, and sustainable technical fabrics.</p>
             </div>
         </section>
     </main>
 
     <footer>
         <span class="footer-logo">ME Sourcing</span>
-        <p>&copy; 2026 Michaelson Emmanuel. All Rights Reserved.</p>
+        <p>&copy; 2026 Michaelson Emmanuel Sourcing. Crafted for Excellence.</p>
     </footer>
 
 </body>
