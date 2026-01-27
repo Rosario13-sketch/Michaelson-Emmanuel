@@ -1,10 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Michaelson Emmanuel - Cloth Exporting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michaelson Emmanuel | Premium Sourcing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Minimalist Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
+            color: #1a1a1a; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Monochromatic Color Palette */
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --dark-gray: #333333;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+        .logo img {
+            height: 60px; /* Adjust based on your logo size */
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        /* Hero Section - Bold Typography & Hero Header */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background-color: var(--gray); /* Placeholder until you have office photos */
+            position: relative;
+        }
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .sourcing-tag {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 15px; /* Long spaces for premium look */
+            display: block;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Asymmetrical Layout Section */
+        .services {
+            padding: 10rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .service-item {
+            padding: 2rem;
+            border-left: 1px solid var(--black);
+        }
+        .service-item.offset {
+            margin-top: 4rem; /* Asymmetrical touch */
+        }
+        .service-item h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            padding: 5rem 5%;
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+        .footer-logo {
+            letter-spacing: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .services { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Michaelson Emmanuel</h1>
-    <p>Premium Cloth Exporting Services. Website coming soon.</p>
+
+    <nav>
+        <div class="logo">
+            <img src="ME SOURCING.png" alt="Michaelson Emmanuel Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Michaelson Emmanuel</h1>
+            <span class="sourcing-tag">Sourcing</span>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="service-item">
+            <h3>Fabric Sourcing</h3>
+            <p>Access to premium cotton, linen, and technical textiles from the heart of the manufacturing hub.</p>
+        </div>
+        <div class="service-item offset">
+            <h3>Production Management</h3>
+            <p>High-capacity output with rigorous quality control and fabric inspection.</p>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">ME SOURCING</span>
+        <p>&copy; 2026 Michaelson Emmanuel Sourcing. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
