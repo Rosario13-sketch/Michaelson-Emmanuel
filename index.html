@@ -3,148 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaelson Emmanuel | Industrial Sourcing</title>
+    <title>Michaelson Emmanuel | Premium Sourcing</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         /* Modern Minimalist Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --bg-deep: #121212;      /* Deep Onyx */
-            --bg-offset: #1A1A1A;    /* Dark Charcoal */
-            --accent-stone: #A89F91; /* Muted Stone/Bronze */
-            --text-primary: #E5E5E5; /* Soft White */
-            --text-muted: #888888;   /* Industrial Gray */
+            --bg-stone: #E5E1DA;     /* Muted Warm Stone */
+            --bg-light: #FBFBF9;     /* Soft Off-White */
+            --accent-bronze: #8C8276; /* Industrial Bronze */
+            --text-main: #2D2926;    /* Deep Charcoal */
+            --text-sub: #5E5E5E;     /* Muted Gray */
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-deep); 
-            color: var(--text-primary); 
-            line-height: 1.6;
+            background-color: var(--bg-light); 
+            color: var(--text-main); 
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* Navigation - Minimalist Text Branding */
+        /* Navigation - Empty Top Left */
         nav {
-            padding: 2rem 5%;
+            padding: 2.5rem 5%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Pushes links to the right */
             align-items: center;
             background: transparent;
             position: absolute;
             width: 100%;
             z-index: 1000;
         }
-        .text-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 400;
-            color: var(--text-primary);
-        }
         .nav-links a {
             text-decoration: none;
-            color: var(--text-primary);
-            margin-left: 2.5rem;
-            font-size: 0.75rem;
+            color: var(--text-main);
+            margin-left: 3rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            transition: 0.3s;
-            opacity: 0.8;
+            transition: 0.4s;
+            font-weight: 400;
         }
-        .nav-links a:hover { opacity: 1; color: var(--accent-stone); }
+        .nav-links a:hover { color: var(--accent-bronze); }
 
-        /* Hero Section - High-End Dark Aesthetic */
+        /* Hero Section - Using Stone as Background */
         .hero {
-            height: 100vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            background-color: var(--bg-stone);
             padding: 0 5%;
-            background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(26,26,26,1) 100%);
         }
         .hero-content { max-width: 1100px; }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 12vw, 8rem);
-            line-height: 0.95;
+            font-size: clamp(3rem, 10vw, 7.5rem);
+            line-height: 1;
             font-weight: 400;
+            color: var(--text-main);
             margin-bottom: 2rem;
         }
         .sourcing-tag {
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 35px; /* Maximum "Premium" spacing */
+            letter-spacing: 30px; /* High-end wide spacing */
             display: block;
-            font-size: 0.9rem;
-            color: var(--accent-stone);
-            margin-right: -35px;
-            opacity: 0.7;
+            font-size: 0.95rem;
+            color: var(--accent-bronze);
+            margin-right: -30px;
         }
 
-        /* Services - Dark Grid Layout */
+        /* Services Grid - Transition to Lighter Background */
         .services {
             padding: 12rem 5%;
-            background-color: var(--bg-deep);
+            background-color: var(--bg-light);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10rem;
+            gap: 8rem;
         }
         .service-item {
             padding: 4rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--accent-bronze);
         }
-        .service-item.offset { margin-top: 10rem; }
+        .service-item.offset { margin-top: 8rem; }
         .service-item h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            color: var(--accent-stone);
+            font-size: 2.6rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
         }
         .service-item p { 
-            color: var(--text-muted); 
-            font-size: 1.2rem; 
-            max-width: 450px;
-            font-weight: 300;
+            color: var(--text-sub); 
+            font-size: 1.15rem; 
+            max-width: 420px;
         }
 
-        /* Footer */
+        /* Footer - Simple and Grounded */
         footer {
-            padding: 10rem 5%;
-            background: #000000;
-            color: var(--text-primary);
+            padding: 8rem 5%;
+            background: var(--bg-stone);
+            color: var(--text-main);
             text-align: center;
         }
-        .footer-brand {
-            letter-spacing: 15px;
-            font-size: 1rem;
-            margin-bottom: 3rem;
+        .footer-tag {
+            letter-spacing: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
             display: block;
             text-transform: uppercase;
-            font-weight: 400;
+            font-weight: 600;
         }
-        footer p { font-size: 0.75rem; opacity: 0.4; letter-spacing: 2px;}
+        footer p { font-size: 0.75rem; opacity: 0.6; letter-spacing: 1px;}
 
-        /* Mobile */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .services { grid-template-columns: 1fr; gap: 4rem; padding: 6rem 5%; }
             .service-item.offset { margin-top: 0; }
-            .hero h1 { font-size: 3.5rem; }
-            .sourcing-tag { letter-spacing: 15px; font-size: 0.6rem; margin-right: -15px; }
-            .nav-links { display: none; }
+            .hero h1 { font-size: 3.2rem; }
+            .sourcing-tag { letter-spacing: 12px; font-size: 0.7rem; margin-right: -12px; }
+            nav { justify-content: center; padding: 2rem 0; }
+            .nav-links a { margin: 0 1rem; font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="text-logo">
-            M. Emmanuel
-        </div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#services">Services</a>
@@ -162,19 +151,19 @@
 
         <section id="services" class="services">
             <div class="service-item">
-                <h3>Global Trade</h3>
-                <p>Architecting reliable export pathways for high-volume apparel manufacturing across global markets.</p>
+                <h3>Supply Chain</h3>
+                <p>Strategic manufacturing partnerships and global logistics management tailored for high-end fashion exporters.</p>
             </div>
             <div class="service-item offset">
-                <h3>Materiality</h3>
-                <p>Precision-led sourcing of raw textiles, emphasizing structural integrity and premium finishes.</p>
+                <h3>Fabrication</h3>
+                <p>Direct access to premium textile mills, ensuring material excellence from raw fiber to finished garment.</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <span class="footer-brand">M. Emmanuel Sourcing</span>
-        <p>&copy; 2026 Michaelson Emmanuel. International Standards.</p>
+        <span class="footer-tag">M. Emmanuel Sourcing</span>
+        <p>&copy; 2026 Michaelson Emmanuel. International Trade & Sourcing.</p>
     </footer>
 
 </body>
