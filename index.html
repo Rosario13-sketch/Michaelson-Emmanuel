@@ -11,9 +11,10 @@
         
         :root {
             --white: #ffffff;
-            --stone: #E5E1DA;     /* Muted Stone for secondary sections */
-            --bronze: #8C8276;    /* Accent Bronze */
+            --stone: #E5E1DA;
+            --bronze: #8C8276;
             --black-overlay: rgba(0, 0, 0, 0.6);
+            --bg-dark: #111;
         }
 
         body { 
@@ -23,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section - The Exact Screenshot Look */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -40,7 +41,6 @@
             padding: 0 5%;
         }
 
-        /* The Framing Lines from your Screenshot */
         .hero::before, .hero::after {
             content: '';
             position: absolute;
@@ -51,7 +51,6 @@
         .hero::before { top: 12%; }
         .hero::after { bottom: 12%; }
 
-        /* Centered Navigation */
         nav {
             position: absolute;
             top: 5%;
@@ -72,7 +71,6 @@
         }
         .nav-links a:hover { color: var(--bronze); }
 
-        /* Main Typography */
         .hero-content { z-index: 2; }
         
         .hero h1 {
@@ -89,13 +87,13 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 35px; /* Extreme spacing for the premium look */
+            letter-spacing: 35px;
             font-size: clamp(1rem, 3vw, 2.5rem);
-            margin-right: -35px; /* Centers the text properly despite spacing */
+            margin-right: -35px;
             color: var(--white);
         }
 
-        /* Secondary Info Section - Muted Stone/Bronze Palette */
+        /* --- ABOUT SECTION --- */
         .info-section {
             padding: 10rem 10%;
             background-color: var(--stone);
@@ -119,10 +117,89 @@
             opacity: 0.8;
         }
 
-        /* Footer */
+        /* --- NEW: PRODUCT COLLAGE SECTION --- */
+        .product-collage {
+            padding: 5rem 2%;
+            background-color: var(--bg-dark);
+        }
+
+        .collage-grid {
+            display: grid;
+            /* This creates the complex layout from your example image */
+            grid-template-columns: repeat(4, 1fr) 50px 1.5fr 0.8fr;
+            grid-template-rows: repeat(2, 350px);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* Layout Placements */
+        .rack-large { grid-column: 1 / span 2; }
+        .vertical-text-bar {
+            grid-column: 5;
+            grid-row: 1 / span 2;
+            background-color: var(--bronze);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+        .vertical-text-bar span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: var(--white);
+            white-space: nowrap;
+            font-size: 1.2rem;
+        }
+        .swatches {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .swatch { flex: 1; border-radius: 4px; }
+        .detail-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .detail-stack img { height: calc(50% - 0.5rem); }
+        .grid-col-span-2 { grid-column: span 2; }
+
+        /* --- HOVER EFFECT FOR MODELS --- */
+        .model-pop {
+            perspective: 1000px;
+            z-index: 1;
+        }
+        .model-pop img {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+        }
+        .model-pop:hover {
+            z-index: 10; /* Bring to front on hover */
+        }
+        .model-pop:hover img {
+            transform: scale(1.08) translateZ(20px); /* Pop out effect */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* --- FOOTER --- */
         footer {
             padding: 5rem 5%;
-            background-color: #111;
+            background-color: #000;
             text-align: center;
         }
         .footer-logo {
@@ -133,6 +210,10 @@
         }
 
         /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .collage-grid { grid-template-rows: repeat(2, 250px); }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .sourcing-tag { letter-spacing: 12px; margin-right: -12px; }
@@ -140,6 +221,15 @@
             .info-section { grid-template-columns: 1fr; padding: 5rem 5%; }
             .hero::before { top: 15%; }
             .hero::after { bottom: 15%; }
+            
+            /* Simplify collage for mobile */
+            .collage-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .vertical-text-bar, .swatches, .detail-stack, .rack-large { display: none; } /* Hide filler items */
+            .grid-item { height: 400px; }
         }
     </style>
 </head>
@@ -171,8 +261,45 @@
         </div>
     </section>
 
+    <section id="products" class="product-collage">
+        <div class="collage-grid">
+            <div class="grid-item rack-large">
+                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2070&auto=format&fit=crop" alt="Clothing Rack">
+            </div>
+            <div class="grid-item model-pop">
+                <img src="green flower.png" alt="Green Floral Shirt Model">
+            </div>
+            <div class="grid-item vertical-text-bar">
+                <span>ME SOURCING</span>
+            </div>
+            <div class="grid-item model-pop">
+                <img src="7564154-Pine-1_1605x.webp" alt="Pine Green Shirt Model">
+            </div>
+            <div class="grid-item swatches">
+                <div class="swatch" style="background-color: #2E4A3D;"></div>
+                <div class="swatch" style="background-color: #4A3728;"></div>
+                <div class="swatch" style="background-color: #B0B0B0;"></div>
+                <div class="swatch" style="background-color: #3D3D3D;"></div>
+            </div>
+
+            <div class="grid-item model-pop">
+                <img src="7564153-Navy-1_1605x.webp" alt="Navy Shirt Model">
+            </div>
+            <div class="grid-item model-pop">
+                <img src="Flower.PNG" alt="Floral Shirt Model">
+            </div>
+            <div class="grid-item detail-stack">
+                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=2070&auto=format&fit=crop" alt="Clothing Detail">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=2070&auto=format&fit=crop" alt="Hangers">
+            </div>
+            <div class="grid-item model-pop grid-col-span-2">
+                <img src="7664502-Copper-1_1605x.webp" alt="Plaid Shirt Model">
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <span class="footer-logo">ME Sourcing</span>
+        <span class="footer-logo">M. Emmanuel Sourcing</span>
     </footer>
 
 </body>
