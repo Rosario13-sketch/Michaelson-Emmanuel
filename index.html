@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaelson Emmanuel | Sourcing</title>
+    <title>Michaelson Emmanuel | Glimpse of our Creations</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         /* Modern Reset */
@@ -11,8 +11,8 @@
         
         :root {
             --white: #ffffff;
-            --stone-light: #F5F5F3; /* Very light executive background */
-            --stone-mid: #E5E1DA;   /* Subtle depth */
+            --stone-light: #F5F5F3; 
+            --stone-mid: #E5E1DA;   
             --accent-bronze: #8C8276;
             --black-overlay: rgba(0, 0, 0, 0.6);
         }
@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION (DARK) --- */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -87,15 +87,15 @@
             margin-right: -30px;
         }
 
-        /* --- CREATIVE GALLERY SECTION (LIGHT) --- */
+        /* --- CREATIVE GALLERY SECTION --- */
         .gallery-section {
-            padding: 12rem 5%;
+            padding: 8rem 5%; /* Reduced top padding */
             background-color: var(--stone-light);
         }
 
         .gallery-header {
             text-align: center;
-            margin-bottom: 8rem;
+            margin-bottom: 5rem; /* Reduced margin */
         }
         .gallery-header h2 {
             font-family: 'Playfair Display', serif;
@@ -111,12 +111,12 @@
             margin-top: 10px;
         }
 
-        /* Asymmetrical Grid */
+        /* Asymmetrical Grid - Adjusted for closer images */
         .boutique-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
+            gap: 1.5rem; /* Brought images closer */
+            max-width: 1200px; /* Narrowed container to make images appear smaller */
             margin: 0 auto;
         }
 
@@ -127,11 +127,10 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Ensures model heads are never cut */
         .grid-item img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Shows full model including head */
+            object-fit: contain; 
             display: block;
             background-color: #fff;
             transition: transform 0.6s ease;
@@ -141,12 +140,11 @@
             transform: scale(1.05);
         }
 
-        /* Boutique Placement logic */
-        .item-1 { grid-column: 1 / span 5; height: 750px; }
-        .item-2 { grid-column: 7 / span 6; height: 600px; margin-top: 5rem; }
-        .item-3 { grid-column: 2 / span 4; height: 550px; margin-top: -10rem; }
-        .item-4 { grid-column: 7 / span 5; height: 700px; }
-        .item-5 { grid-column: 4 / span 6; height: 800px; margin-top: 2rem; }
+        /* Boutique Placement - Sizing adjusted */
+        .item-1 { grid-column: 2 / span 4; height: 600px; } /* Shifted and shortened */
+        .item-2 { grid-column: 7 / span 4; height: 500px; margin-top: 3rem; }
+        .item-3 { grid-column: 2 / span 3; height: 450px; margin-top: -5rem; }
+        .item-4 { grid-column: 6 / span 5; height: 550px; margin-top: 1rem; }
 
         /* --- FOOTER --- */
         footer {
@@ -163,11 +161,10 @@
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .boutique-grid { display: flex; flex-direction: column; gap: 4rem; }
-            .item-1, .item-2, .item-3, .item-4, .item-5 { margin: 0; height: 500px; }
+            .boutique-grid { display: flex; flex-direction: column; gap: 2rem; }
+            .item-1, .item-2, .item-3, .item-4 { margin: 0; height: 450px; }
             .gallery-header h2 { font-size: 2.2rem; }
             .hero-title { font-size: 3.5rem; }
-            .sourcing-tag { letter-spacing: 12px; margin-right: -12px; }
         }
     </style>
 </head>
@@ -189,8 +186,8 @@
 
     <section id="collection" class="gallery-section">
         <div class="gallery-header">
-            <h2>The Curated Series</h2>
-            <p>2026 Export Collection</p>
+            <h2>Glimpse of our Creations</h2>
+            <p>Curated Selection</p>
         </div>
 
         <div class="boutique-grid">
@@ -209,11 +206,8 @@
             <div class="grid-item item-4">
                 <img src="Flower.PNG" alt="Dark Floral Collection">
             </div>
-
-            <div class="grid-item item-5">
-                <img src="green flower.png" alt="Light Green Summer Series">
+            
             </div>
-        </div>
     </section>
 
     <footer>
