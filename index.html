@@ -3,168 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaelson Emmanuel | Premium Sourcing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <title>Michaelson Emmanuel | Sourcing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        /* Modern Minimalist Reset */
+        /* Reset & Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --bg-stone: #E5E1DA;     /* Muted Warm Stone */
-            --bg-light: #FBFBF9;     /* Soft Off-White */
-            --accent-bronze: #8C8276; /* Industrial Bronze */
-            --text-main: #2D2926;    /* Deep Charcoal */
-            --text-sub: #5E5E5E;     /* Muted Gray */
-        }
-
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-light); 
-            color: var(--text-main); 
-            line-height: 1.7;
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #000; /* Fallback color */
+            color: #fff;
             overflow-x: hidden;
         }
 
-        /* Navigation - Empty Top Left */
-        nav {
-            padding: 2.5rem 5%;
-            display: flex;
-            justify-content: flex-end; /* Pushes links to the right */
-            align-items: center;
-            background: transparent;
-            position: absolute;
+        /* The Main Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
             width: 100%;
-            z-index: 1000;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 3rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: 0.4s;
-            font-weight: 400;
-        }
-        .nav-links a:hover { color: var(--accent-bronze); }
-
-        /* Hero Section - Using Stone as Background */
-        .hero {
-            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: var(--bg-stone);
+            /* Background image with a dark overlay for text readability */
+            /* Replace 'clothing-store.jpg' with your actual image later */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             padding: 0 5%;
         }
-        .hero-content { max-width: 1100px; }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 7.5rem);
-            line-height: 1;
-            font-weight: 400;
-            color: var(--text-main);
-            margin-bottom: 2rem;
+
+        /* Top & Bottom Horizontal Lines */
+        /* We use pseudo-elements to create the lines exactly as shown */
+        .hero-section::before,
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 85%; /* Adjust width as needed */
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white line */
         }
-        .sourcing-tag {
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 30px; /* High-end wide spacing */
-            display: block;
-            font-size: 0.95rem;
-            color: var(--accent-bronze);
-            margin-right: -30px;
+        
+        .hero-section::before {
+            top: 15%; /* Position for the top line */
+        }
+        
+        .hero-section::after {
+            bottom: 15%; /* Position for the bottom line */
         }
 
-        /* Services Grid - Transition to Lighter Background */
-        .services {
-            padding: 12rem 5%;
-            background-color: var(--bg-light);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 6%; /* Sits just above the top line */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
         }
-        .service-item {
-            padding: 4rem 0;
-            border-top: 1px solid var(--accent-bronze);
-        }
-        .service-item.offset { margin-top: 8rem; }
-        .service-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-        .service-item p { 
-            color: var(--text-sub); 
-            font-size: 1.15rem; 
-            max-width: 420px;
-        }
-
-        /* Footer - Simple and Grounded */
-        footer {
-            padding: 8rem 5%;
-            background: var(--bg-stone);
-            color: var(--text-main);
-            text-align: center;
-        }
-        .footer-tag {
-            letter-spacing: 12px;
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 2rem;
             font-size: 0.9rem;
-            margin-bottom: 2.5rem;
-            display: block;
-            text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700; /* Bold font for links */
         }
-        footer p { font-size: 0.75rem; opacity: 0.6; letter-spacing: 1px;}
+
+        /* Main Title & Subtitle */
+        .hero-content {
+            z-index: 2;
+            max-width: 1200px;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6.5rem); /* Responsive large font */
+            font-weight: 900; /* Ultra-bold weight */
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700; /* Bold weight */
+            letter-spacing: 25px; /* Extreme spacing to match the image */
+            margin-right: -25px; /* Counter-act the last letter's spacing */
+            display: block;
+        }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .services { grid-template-columns: 1fr; gap: 4rem; padding: 6rem 5%; }
-            .service-item.offset { margin-top: 0; }
-            .hero h1 { font-size: 3.2rem; }
-            .sourcing-tag { letter-spacing: 12px; font-size: 0.7rem; margin-right: -12px; }
-            nav { justify-content: center; padding: 2rem 0; }
-            .nav-links a { margin: 0 1rem; font-size: 0.7rem; }
+            .nav-links a { margin: 0 0.8rem; font-size: 0.8rem; }
+            .hero-section::before { top: 12%; }
+            .hero-section::after { bottom: 12%; }
+            .hero-subtitle { letter-spacing: 15px; margin-right: -15px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+    <section class="hero-section">
+        
+        <nav>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#products">Our Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="hero-title">MICHAELSON EMMANUEL</h1>
+            <span class="hero-subtitle">SOURCING</span>
         </div>
-    </nav>
+        
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Michaelson <br> Emmanuel</h1>
-                <span class="sourcing-tag">Sourcing</span>
-            </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="service-item">
-                <h3>Supply Chain</h3>
-                <p>Strategic manufacturing partnerships and global logistics management tailored for high-end fashion exporters.</p>
-            </div>
-            <div class="service-item offset">
-                <h3>Fabrication</h3>
-                <p>Direct access to premium textile mills, ensuring material excellence from raw fiber to finished garment.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <span class="footer-tag">M. Emmanuel Sourcing</span>
-        <p>&copy; 2026 Michaelson Emmanuel. International Trade & Sourcing.</p>
-    </footer>
-
-</body>
+    </body>
 </html>
