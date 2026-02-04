@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         /* Modern Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
         :root {
             --white: #ffffff;
@@ -50,31 +50,30 @@
         .hero::before { top: 12%; }
         .hero::after { bottom: 12%; }
 
-        /* FIXED NAV FOR MOBILE */
+        /* FIXED NAV FOR MOBILE (Screen Fix) */
         nav {
             position: absolute;
             top: 5%;
             width: 100%;
             padding: 0 5%;
-            display: flex;
-            justify-content: center;
             z-index: 100;
         }
         .nav-links {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allows tabs to wrap neatly if screen is tiny */
-            gap: 1.5rem; /* Consistent spacing */
+            align-items: center;
+            gap: 2.5rem;
         }
         .nav-links a {
             text-decoration: none;
             color: var(--white);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 400;
-            padding: 5px 0;
+            transition: opacity 0.3s;
         }
+        .nav-links a:hover { opacity: 0.7; }
 
         .hero-title {
             font-family: 'Montserrat', sans-serif;
@@ -95,6 +94,69 @@
             margin-right: -30px;
         }
 
+        /* --- PROFESSIONAL ABOUT SECTION --- */
+        .about-section {
+            padding: 10rem 10%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            color: #1a1a1a;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-stats {
+            border-left: 1px solid var(--stone-mid);
+            padding-left: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-item {
+            margin-bottom: 2rem;
+        }
+
+        .stat-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-bronze);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+        }
+
         /* --- CREATIVE GALLERY SECTION --- */
         .gallery-section {
             padding: 10rem 5%;
@@ -106,30 +168,30 @@
 
         .gallery-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
+
         .gallery-header h2 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-style: italic;
             font-weight: 400;
         }
+
         .gallery-header p {
             text-transform: uppercase;
             letter-spacing: 8px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--accent-bronze);
             margin-top: 10px;
         }
 
-        /* 2x2 Square Grid */
         .boutique-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 25px;
             max-width: 800px;
             width: 100%;
-            justify-items: center;
         }
 
         .grid-item {
@@ -139,8 +201,8 @@
             width: 100%;
             aspect-ratio: 3/4;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 2px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .grid-item img {
@@ -151,10 +213,9 @@
             transition: transform 0.6s ease;
         }
 
-        /* POP EFFECT */
         .grid-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
             z-index: 10;
         }
 
@@ -164,7 +225,7 @@
 
         /* --- FOOTER --- */
         footer {
-            padding: 4rem 5%;
+            padding: 5rem 5%;
             background-color: var(--stone-mid);
             text-align: center;
         }
@@ -177,19 +238,26 @@
             margin-bottom: 1.5rem;
         }
         .copyright {
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            color: var(--accent-bronze);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: #666;
             text-transform: uppercase;
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            .nav-links { gap: 1rem; } /* Slightly tighter links for mobile */
-            .nav-links a { letter-spacing: 2px; font-size: 0.75rem; }
-            .boutique-grid { grid-template-columns: 1fr; max-width: 350px; } /* Stack on phones */
+        /* Mobile Adjustments (Fixed Nav Mess) */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero-title { font-size: 3.2rem; }
+            .sourcing-tag { letter-spacing: 15px; margin-right: -15px; }
+            
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-stats { border-left: none; border-top: 1px solid var(--stone-mid); padding-top: 3rem; padding-left: 0; }
+            
+            .boutique-grid { grid-template-columns: 1fr; max-width: 320px; }
             .gallery-header h2 { font-size: 2.2rem; }
-            .hero-title { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -209,6 +277,32 @@
         </div>
     </section>
 
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>The Vision</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Established in 2016, Michaelson Emmanuel Sourcing is a premier garment supply partner based in Dhaka, Bangladesh[cite: 4, 5]. We specialize in woven tops, bottoms, and jersey items for a global clientele[cite: 12].</p>
+                    <p>Under the leadership of Michael A. Rosario—who brings over 22 years of industry expertise—we bridge the gap between high-compliance manufacturing and international fashion brands[cite: 25, 31, 32]. Our commitment is to quality assurance and seamless production delivery[cite: 28].</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h4>Global Presence</h4>
+                        <p>Canada, Denmark, France, UK, & USA </p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Key Partners</h4>
+                        <p>Armani Exchange, ASOS, & Fat Face </p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Annual Turnover</h4>
+                        <p>US$8 Million (Combined) [cite: 10, 11]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="collection" class="gallery-section">
         <div class="gallery-header">
             <h2>Glimpse of our Creations</h2>
@@ -219,24 +313,21 @@
             <div class="grid-item">
                 <img src="7564153-Navy-1_1605x.webp" alt="Navy Executive Shirt">
             </div>
-
             <div class="grid-item">
                 <img src="7564154-Pine-1_1605x.webp" alt="Pine Green Floral">
             </div>
-
             <div class="grid-item">
                 <img src="7664502-Copper-1_1605x.webp" alt="Copper Checkered Shirt">
             </div>
-
             <div class="grid-item">
                 <img src="Flower.PNG" alt="Dark Floral Collection">
             </div>
         </div>
     </section>
 
-    <footer>
-        <span class="footer-logo">ME Sourcing</span>
-        <p class="copyright">&copy; 2026 Michaelson Emmanuel. All Rights Reserved.</p>
+    <footer id="contact">
+        <span class="footer-logo">M. Emmanuel Sourcing</span>
+        <p class="copyright">&copy; 2026 Michaelson Emmanuel Sourcing. All Rights Reserved. [cite: 4]</p>
     </footer>
 
 </body>
