@@ -3,51 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaelson Emmanuel | Premium Sourcing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <title>Michaelson Emmanuel | Sourcing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* Modern Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --bg-stone: #E5E1DA;     /* Muted Warm Stone */
-            --bg-light: #FBFBF9;     /* Soft Off-White */
-            --accent-bronze: #8C8276; /* Industrial Bronze Accent */
-            --text-main: #2D2926;    /* Deep Charcoal */
-            --text-sub: #5E5E5E;     /* Muted Gray for text */
-            --black-overlay: rgba(0, 0, 0, 0.5); /* Hero Overlay */
+            --white: #ffffff;
+            --black-overlay: rgba(0, 0, 0, 0.6);
+            --bg-dark: #111;
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-light); 
-            color: var(--text-main); 
-            line-height: 1.7;
+            background-color: #000;
+            color: var(--white);
             overflow-x: hidden;
         }
 
-        /* --- NAVIGATION --- */
-        nav {
-            position: absolute;
-            top: 5%;
-            width: 100%;
-            display: flex;
-            justify-content: center; /* Centered as per editorial design */
-            z-index: 1000;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #ffffff; /* White for hero visibility */
-            margin: 0 2rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: 0.4s;
-            font-weight: 400;
-        }
-        .nav-links a:hover { color: var(--bg-stone); }
-
-        /* --- HERO SECTION: EDITORIAL STYLE --- */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -57,153 +32,116 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Uses your uploaded background image */
             background: linear-gradient(var(--black-overlay), var(--black-overlay)), url('hero-bg.png');
             background-size: cover;
             background-position: center;
             padding: 0 5%;
         }
 
-        /* Framing lines from the specific design requirement */
+        /* Framing lines */
         .hero::before, .hero::after {
             content: '';
             position: absolute;
-            width: 85%;
+            width: 90%;
             height: 1px;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.4);
         }
-        .hero::before { top: 15%; }
-        .hero::after { bottom: 15%; }
+        .hero::before { top: 12%; }
+        .hero::after { bottom: 12%; }
 
-        .hero-content { z-index: 2; color: #ffffff; }
+        nav {
+            position: absolute;
+            top: 5%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            margin: 0 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: #8C8276; }
+
+        .hero-content { z-index: 2; }
+        
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 7.5rem);
+            font-size: clamp(2.5rem, 10vw, 7rem);
             font-weight: 900;
-            line-height: 0.9;
-            text-transform: uppercase;
+            line-height: 1;
             letter-spacing: -2px;
-            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
         }
+
         .sourcing-tag {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 35px; /* Premium wide spacing */
-            font-size: clamp(0.9rem, 2.5vw, 2rem);
-            margin-right: -35px; /* Offset for centering */
-        }
-
-        /* --- ABOUT SECTION: LIGHT EXECUTIVE --- */
-        .info-section {
-            padding: 12rem 10%;
-            background-color: var(--bg-stone);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
-        }
-        .info-item h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            color: var(--text-main);
-        }
-        .info-item p { 
-            color: var(--text-sub); 
-            font-size: 1.15rem; 
-            max-width: 450px;
-        }
-
-        /* --- PRODUCT COLLAGE SECTION --- */
-        .product-collage {
-            padding: 10rem 5%;
-            background-color: var(--bg-light);
-        }
-        .collage-title {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 15px;
-            text-transform: uppercase;
-            margin-bottom: 5rem;
-            color: var(--accent-bronze);
-        }
-        .collage-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr) 60px 1.2fr 0.8fr;
-            grid-template-rows: repeat(2, 400px);
-            gap: 1.5rem;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .grid-item { position: relative; overflow: hidden; border-radius: 2px; }
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        /* Collage Special Elements */
-        .rack-main { grid-column: 1 / span 2; }
-        .vertical-brand {
-            grid-column: 5;
-            grid-row: 1 / span 2;
-            background-color: var(--accent-bronze);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-        }
-        .vertical-brand span {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            letter-spacing: 10px;
+            letter-spacing: 35px;
+            font-size: clamp(1rem, 3vw, 2.5rem);
+            margin-right: -35px;
             color: var(--white);
-            font-size: 1.2rem;
-            color: #fff;
         }
-        .swatches { display: flex; flex-direction: column; gap: 0.8rem; }
-        .swatch { flex: 1; border-radius: 2px; }
 
-        /* --- POP-OUT HOVER EFFECT --- */
-        .model-card { z-index: 1; }
-        .model-card:hover { z-index: 10; }
-        .model-card:hover img {
-            transform: scale(1.1); /* Expanded/Pop-out effect */
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        /* --- COLLAGE SECTION --- */
+        .collage-section {
+            padding: 8rem 5%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .collage-container {
+            width: 100%;
+            max-width: 1400px;
+            perspective: 1000px; /* Preps for the pop-out effect */
+        }
+
+        .collage-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+        }
+
+        /* Hover/Tap Expansion Effect */
+        .collage-container:hover img {
+            transform: scale(1.03) translateZ(30px);
+            box-shadow: 0 30px 60px rgba(255,255,255,0.1);
         }
 
         /* --- FOOTER --- */
         footer {
-            padding: 8rem 5%;
-            background: var(--bg-stone);
+            padding: 6rem 5%;
+            background-color: #111;
             text-align: center;
         }
-        .footer-tag {
-            letter-spacing: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 2.5rem;
-            display: block;
+        .footer-logo {
+            letter-spacing: 15px;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            font-weight: 600;
+            opacity: 0.5;
+            color: var(--white);
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 1024px) {
-            .collage-grid { grid-template-rows: repeat(2, 300px); }
-        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 3rem; }
             .sourcing-tag { letter-spacing: 12px; margin-right: -12px; }
-            .info-section { grid-template-columns: 1fr; padding: 6rem 5%; gap: 4rem; }
-            .collage-grid { display: flex; flex-direction: column; }
-            .vertical-brand, .swatches { display: none; }
-            .grid-item { height: 450px; }
+            .nav-links a { margin: 0 0.8rem; font-size: 0.7rem; }
+            .hero::before { top: 15%; }
+            .hero::after { bottom: 15%; }
+            .collage-section { padding: 4rem 2%; }
         }
     </style>
 </head>
@@ -217,69 +155,21 @@
                 <a href="#contact">Contact</a>
             </div>
         </nav>
+
         <div class="hero-content">
             <h1>MICHAELSON <br> EMMANUEL</h1>
             <span class="sourcing-tag">SOURCING</span>
         </div>
     </section>
 
-    <section id="about" class="info-section">
-        <div class="info-item">
-            <h2>Supply Chain</h2>
-            <p>Strategizing high-volume apparel manufacturing and global trade logistics with industrial precision.</p>
-        </div>
-        <div class="info-item">
-            <h2>Materiality</h2>
-            <p>Curating premium textiles from sustainable mills, ensuring structural excellence in every garment exported.</p>
-        </div>
-    </section>
-
-    <section id="products" class="product-collage">
-        <p class="collage-title">Current Collections</p>
-        <div class="collage-grid">
-            <div class="grid-item rack-main">
-                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2070&auto=format&fit=crop" alt="Production Rack">
-            </div>
-
-            <div class="grid-item model-card">
-                <img src="green flower.png" alt="Green Floral Shirt">
-            </div>
-
-            <div class="vertical-brand">
-                <span>M. EMMANUEL</span>
-            </div>
-
-            <div class="grid-item model-card">
-                <img src="7564154-Pine-1_1605x.webp" alt="Pine Green Series">
-            </div>
-
-            <div class="grid-item swatches">
-                <div class="swatch" style="background-color: #2D4034;"></div>
-                <div class="swatch" style="background-color: #5C4033;"></div>
-                <div class="swatch" style="background-color: #D6D2C4;"></div>
-            </div>
-
-            <div class="grid-item model-card">
-                <img src="7564153-Navy-1_1605x.webp" alt="Navy Executive Series">
-            </div>
-
-            <div class="grid-item model-card">
-                <img src="Flower.PNG" alt="Floral Collection">
-            </div>
-
-            <div class="grid-item">
-                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=2070&auto=format&fit=crop" alt="Quality Inspection">
-            </div>
-
-            <div class="grid-item model-card" style="grid-column: span 2;">
-                <img src="7664502-Copper-1_1605x.webp" alt="Copper Checkered Series">
-            </div>
+    <section id="products" class="collage-section">
+        <div class="collage-container">
+            <img src="collage ME.png" alt="Michaelson Emmanuel Product Collage">
         </div>
     </section>
 
     <footer>
-        <span class="footer-tag">M. Emmanuel Sourcing</span>
-        <p>&copy; 2026 Michaelson Emmanuel. International Trade & Sourcing Standards.</p>
+        <span class="footer-logo">M. Emmanuel Sourcing</span>
     </footer>
 
 </body>
