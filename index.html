@@ -107,12 +107,18 @@
             text-align: center;
         }
 
+        /* ANIMATION 1: VISION HEADLINE EMERGE */
         .about-content h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             font-style: italic;
             margin-bottom: 2.5rem;
             color: #1a1a1a;
+            view-timeline-name: --section-in;
+            view-timeline-axis: block;
+            animation: emerge both;
+            animation-timeline: --section-in;
+            animation-range: entry 20% cover 40%;
         }
 
         .about-grid {
@@ -120,6 +126,15 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             text-align: left;
+        }
+
+        /* ANIMATION 2: ESTABLISHMENT FLOAT FROM LEFT */
+        .about-text {
+            view-timeline-name: --section-in;
+            view-timeline-axis: block;
+            animation: slideInLeft both;
+            animation-timeline: --section-in;
+            animation-range: entry 10% cover 30%;
         }
 
         .about-text p {
@@ -130,12 +145,18 @@
             font-weight: 300;
         }
 
+        /* ANIMATION 3: KEY PARTNERS FLOAT FROM RIGHT */
         .about-stats {
             border-left: 1px solid var(--stone-mid);
             padding-left: 3rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            view-timeline-name: --section-in;
+            view-timeline-axis: block;
+            animation: slideInRight both;
+            animation-timeline: --section-in;
+            animation-range: entry 10% cover 30%;
         }
 
         .stat-item {
@@ -155,6 +176,22 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             font-style: italic;
+        }
+
+        /* --- KEYFRAMES FOR ANIMATIONS --- */
+        @keyframes emerge {
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         /* --- CREATIVE GALLERY SECTION --- */
@@ -264,6 +301,9 @@
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
             .about-stats { border-left: none; border-top: 1px solid var(--stone-mid); padding-top: 3rem; padding-left: 0; }
             
+            /* Disable slide-in on mobile for better usability */
+            .about-text, .about-stats { animation: emerge both; animation-timeline: --section-in; }
+
             .boutique-grid { grid-template-columns: 1fr; max-width: 320px; }
             .gallery-header h2 { font-size: 2.2rem; }
         }
@@ -290,21 +330,21 @@
             <h2>The Vision</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>Established in 2016, Michaelson Emmanuel Sourcing is a premier garment supply partner based in Dhaka, Bangladesh. We specialize in woven tops, bottoms, and jersey items for a global clientele.</p>
-                    <p>Under the leadership of Michael A. Rosario—who brings over 22 years of industry expertise—we bridge the gap between high-compliance manufacturing and international fashion brands. Our commitment is to quality assurance and seamless production delivery.</p>
+                    [cite_start]<p>Established in 2016, Michaelson Emmanuel Sourcing is a premier garment supply partner based in Dhaka, Bangladesh[cite: 4, 5, 6]. [cite_start]We specialize in woven tops, bottoms, and jersey items for a global clientele[cite: 12, 13].</p>
+                    [cite_start]<p>Under the leadership of Michael A. Rosario—who brings over 22 years of industry expertise—we bridge the gap between high-compliance manufacturing and international fashion brands[cite: 31, 32]. [cite_start]Our commitment is to quality assurance and seamless production delivery[cite: 28, 20].</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat-item">
                         <h4>Global Presence</h4>
-                        <p>Canada, Denmark, France, UK, & USA </p>
+                        [cite_start]<p>Canada, Denmark, France, UK, & USA [cite: 14, 15, 16, 17]</p>
                     </div>
                     <div class="stat-item">
                         <h4>Key Partners</h4>
-                        <p>Armani Exchange, ASOS, & Fat Face </p>
+                        [cite_start]<p>Armani Exchange, ASOS, & Fat Face [cite: 18]</p>
                     </div>
                     <div class="stat-item">
                         <h4>Annual Turnover</h4>
-                        <p>US$8 Million (Combined) </p>
+                        [cite_start]<p>US$8 Million (Combined) [cite: 10, 11]</p>
                     </div>
                 </div>
             </div>
@@ -336,8 +376,8 @@
     <footer id="contact">
         <span class="footer-logo">ME Sourcing</span>
         <div class="footer-info">
-            <p>Office Address: Block D, House no. 01 (B-2), 1213 Road No. 17, Dhaka</p>
-            <p>E-mail: rosario.michaelson@gmail.com</p>
+            <p>Office Address: Block D, House no. [cite_start]01 (B-2), 1213 Road No. 17, Dhaka [cite: 6, 40]</p>
+            [cite_start]<p>E-mail: rosario.michaelson@gmail.com [cite: 35, 41]</p>
         </div>
         <p class="copyright">&copy; 2026 Michaelson Emmanuel Sourcing. All Rights Reserved.</p>
     </footer>
