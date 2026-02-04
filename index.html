@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaelson Emmanuel | Perfection, in every stitch</title>
+    <title>Michaelson Emmanuel | Glimpse of our Creations</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         /* Modern Reset */
@@ -50,22 +50,30 @@
         .hero::before { top: 12%; }
         .hero::after { bottom: 12%; }
 
+        /* FIXED NAV FOR MOBILE */
         nav {
             position: absolute;
             top: 5%;
             width: 100%;
+            padding: 0 5%;
             display: flex;
             justify-content: center;
             z-index: 100;
         }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allows tabs to wrap neatly if screen is tiny */
+            gap: 1.5rem; /* Consistent spacing */
+        }
         .nav-links a {
             text-decoration: none;
             color: var(--white);
-            margin: 0 2rem;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 400;
+            padding: 5px 0;
         }
 
         .hero-title {
@@ -93,7 +101,7 @@
             background-color: var(--stone-light);
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centers the entire header and grid */
+            align-items: center;
         }
 
         .gallery-header {
@@ -114,12 +122,12 @@
             margin-top: 10px;
         }
 
-        /* 2x2 Square Grid Logic */
+        /* 2x2 Square Grid */
         .boutique-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Two items per row */
-            gap: 20px; /* Small gap to keep them close */
-            max-width: 800px; /* Controls the overall size of the square */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
             width: 100%;
             justify-items: center;
         }
@@ -129,7 +137,7 @@
             overflow: hidden;
             background: #fff;
             width: 100%;
-            aspect-ratio: 3/4; /* Keeps consistent vertical portrait look */
+            aspect-ratio: 3/4;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-radius: 4px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -138,38 +146,48 @@
         .grid-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the frame is filled perfectly */
+            object-fit: cover;
             display: block;
             transition: transform 0.6s ease;
         }
 
-        /* --- THE POP EFFECT --- */
+        /* POP EFFECT */
         .grid-item:hover {
-            transform: scale(1.03); /* Subtle lift */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Soft shadow for depth */
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             z-index: 10;
         }
 
         .grid-item:hover img {
-            transform: scale(1.05); /* Slight zoom inside the frame */
+            transform: scale(1.05);
         }
 
         /* --- FOOTER --- */
         footer {
-            padding: 6rem 5%;
+            padding: 4rem 5%;
             background-color: var(--stone-mid);
             text-align: center;
         }
         .footer-logo {
+            display: block;
             letter-spacing: 12px;
             font-size: 0.8rem;
             text-transform: uppercase;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .copyright {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--accent-bronze);
+            text-transform: uppercase;
         }
 
         /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .boutique-grid { grid-template-columns: 1fr; } /* Stack on small phones */
+            .nav-links { gap: 1rem; } /* Slightly tighter links for mobile */
+            .nav-links a { letter-spacing: 2px; font-size: 0.75rem; }
+            .boutique-grid { grid-template-columns: 1fr; max-width: 350px; } /* Stack on phones */
             .gallery-header h2 { font-size: 2.2rem; }
             .hero-title { font-size: 3.5rem; }
         }
@@ -217,7 +235,8 @@
     </section>
 
     <footer>
-        <span class="footer-logo">ME Sourcing</span>
+        <span class="footer-logo">M. Emmanuel Sourcing</span>
+        <p class="copyright">&copy; 2026 Michaelson Emmanuel. All Rights Reserved.</p>
     </footer>
 
 </body>
