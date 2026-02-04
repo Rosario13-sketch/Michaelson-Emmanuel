@@ -89,13 +89,16 @@
 
         /* --- CREATIVE GALLERY SECTION --- */
         .gallery-section {
-            padding: 8rem 5%; /* Reduced top padding */
+            padding: 10rem 5%;
             background-color: var(--stone-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers the entire header and grid */
         }
 
         .gallery-header {
             text-align: center;
-            margin-bottom: 5rem; /* Reduced margin */
+            margin-bottom: 4rem;
         }
         .gallery-header h2 {
             font-family: 'Playfair Display', serif;
@@ -111,40 +114,45 @@
             margin-top: 10px;
         }
 
-        /* Asymmetrical Grid - Adjusted for closer images */
+        /* 2x2 Square Grid Logic */
         .boutique-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem; /* Brought images closer */
-            max-width: 1200px; /* Narrowed container to make images appear smaller */
-            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr); /* Two items per row */
+            gap: 20px; /* Small gap to keep them close */
+            max-width: 800px; /* Controls the overall size of the square */
+            width: 100%;
+            justify-items: center;
         }
 
         .grid-item {
             position: relative;
             overflow: hidden;
             background: #fff;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            aspect-ratio: 3/4; /* Keeps consistent vertical portrait look */
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .grid-item img {
             width: 100%;
             height: 100%;
-            object-fit: contain; 
+            object-fit: cover; /* Ensures the frame is filled perfectly */
             display: block;
-            background-color: #fff;
             transition: transform 0.6s ease;
         }
 
-        .grid-item:hover img {
-            transform: scale(1.05);
+        /* --- THE POP EFFECT --- */
+        .grid-item:hover {
+            transform: scale(1.03); /* Subtle lift */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Soft shadow for depth */
+            z-index: 10;
         }
 
-        /* Boutique Placement - Sizing adjusted */
-        .item-1 { grid-column: 2 / span 4; height: 600px; } /* Shifted and shortened */
-        .item-2 { grid-column: 7 / span 4; height: 500px; margin-top: 3rem; }
-        .item-3 { grid-column: 2 / span 3; height: 450px; margin-top: -5rem; }
-        .item-4 { grid-column: 6 / span 5; height: 550px; margin-top: 1rem; }
+        .grid-item:hover img {
+            transform: scale(1.05); /* Slight zoom inside the frame */
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -160,9 +168,8 @@
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .boutique-grid { display: flex; flex-direction: column; gap: 2rem; }
-            .item-1, .item-2, .item-3, .item-4 { margin: 0; height: 450px; }
+        @media (max-width: 600px) {
+            .boutique-grid { grid-template-columns: 1fr; } /* Stack on small phones */
             .gallery-header h2 { font-size: 2.2rem; }
             .hero-title { font-size: 3.5rem; }
         }
@@ -191,23 +198,22 @@
         </div>
 
         <div class="boutique-grid">
-            <div class="grid-item item-1">
+            <div class="grid-item">
                 <img src="7564153-Navy-1_1605x.webp" alt="Navy Executive Shirt">
             </div>
 
-            <div class="grid-item item-2">
+            <div class="grid-item">
                 <img src="7564154-Pine-1_1605x.webp" alt="Pine Green Floral">
             </div>
 
-            <div class="grid-item item-3">
+            <div class="grid-item">
                 <img src="7664502-Copper-1_1605x.webp" alt="Copper Checkered Shirt">
             </div>
 
-            <div class="grid-item item-4">
+            <div class="grid-item">
                 <img src="Flower.PNG" alt="Dark Floral Collection">
             </div>
-            
-            </div>
+        </div>
     </section>
 
     <footer>
