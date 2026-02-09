@@ -107,12 +107,18 @@
             text-align: center;
         }
 
+        /* ANIMATION 1: VISION HEADLINE EMERGE */
         .about-content h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             font-style: italic;
             margin-bottom: 2.5rem;
             color: #1a1a1a;
+            view-timeline-name: --section-in;
+            view-timeline-axis: block;
+            animation: emerge both;
+            animation-timeline: --section-in;
+            animation-range: entry 20% cover 40%;
         }
 
         .about-grid {
@@ -120,6 +126,15 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             text-align: left;
+        }
+
+        /* ANIMATION 2: ESTABLISHMENT FLOAT FROM LEFT */
+        .about-text {
+            view-timeline-name: --section-in;
+            view-timeline-axis: block;
+            animation: slideInLeft both;
+            animation-timeline: --section-in;
+            animation-range: entry 10% cover 30%;
         }
 
         .about-text p {
@@ -130,12 +145,18 @@
             font-weight: 300;
         }
 
+        /* ANIMATION 3: KEY PARTNERS FLOAT FROM RIGHT */
         .about-stats {
             border-left: 1px solid var(--stone-mid);
             padding-left: 3rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            view-timeline-name: --section-in;
+            view-timeline-axis: block;
+            animation: slideInRight both;
+            animation-timeline: --section-in;
+            animation-range: entry 10% cover 30%;
         }
 
         .stat-item {
@@ -155,6 +176,22 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             font-style: italic;
+        }
+
+        /* --- KEYFRAMES FOR ANIMATIONS --- */
+        @keyframes emerge {
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         /* --- CREATIVE GALLERY SECTION --- */
@@ -223,6 +260,44 @@
             transform: scale(1.05);
         }
 
+        /* --- AUTO INFINITY LOGO SLIDER STYLES --- */
+        .logo-slider {
+            background-color: var(--white);
+            padding: 5rem 0;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid var(--stone-mid);
+        }
+
+        .logo-track {
+            display: flex;
+            width: calc(250px * 9); 
+            animation: scrollLogos 20s linear infinite;
+        }
+
+        .logo-track img {
+            width: 160px;
+            height: auto;
+            margin: 0 45px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+
+        .logo-track img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 3)); }
+        }
+
         /* --- FOOTER --- */
         footer {
             padding: 5rem 5%;
@@ -264,8 +339,13 @@
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
             .about-stats { border-left: none; border-top: 1px solid var(--stone-mid); padding-top: 3rem; padding-left: 0; }
             
+            /* Disable slide-in on mobile for better usability */
+            .about-text, .about-stats { animation: emerge both; animation-timeline: --section-in; }
+
             .boutique-grid { grid-template-columns: 1fr; max-width: 320px; }
             .gallery-header h2 { font-size: 2.2rem; }
+            
+            .logo-track img { width: 120px; margin: 0 30px; }
         }
     </style>
 </head>
@@ -296,15 +376,15 @@
                 <div class="about-stats">
                     <div class="stat-item">
                         <h4>Global Presence</h4>
-                        <p>Canada, Denmark, France, UK, & USA </p>
+                        <p>Canada, Denmark, France, UK, & USA</p>
                     </div>
                     <div class="stat-item">
                         <h4>Key Partners</h4>
-                        <p>Armani Exchange, ASOS, & Fat Face </p>
+                        <p>Armani Exchange, ASOS, & Fat Face</p>
                     </div>
                     <div class="stat-item">
                         <h4>Annual Turnover</h4>
-                        <p>US$8 Million (Combined) </p>
+                        <p>US$8 Million (Combined)</p>
                     </div>
                 </div>
             </div>
@@ -332,6 +412,20 @@
             </div>
         </div>
     </section>
+
+    <div class="logo-slider">
+        <div class="logo-track">
+            <img src="armani.png" alt="Armani Exchange">
+            <img src="asos.png" alt="ASOS">
+            <img src="fatface.jpg" alt="Fat Face">
+            <img src="armani.png" alt="Armani Exchange">
+            <img src="asos.png" alt="ASOS">
+            <img src="fatface.jpg" alt="Fat Face">
+            <img src="armani.png" alt="Armani Exchange">
+            <img src="asos.png" alt="ASOS">
+            <img src="fatface.jpg" alt="Fat Face">
+        </div>
+    </div>
 
     <footer id="contact">
         <span class="footer-logo">ME Sourcing</span>
