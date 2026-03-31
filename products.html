@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase | Michaelson Emmanuel Sourcing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Reusing your brand identity */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        :root {
+            --white: #ffffff;
+            --stone-light: #F5F5F3; 
+            --stone-mid: #E5E1DA;   
+            --accent-bronze: #8C8276;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--white);
+            color: #1a1a1a;
+        }
+
+        /* Simplified Nav for Showcase */
+        nav {
+            padding: 2rem 5%;
+            background: var(--white);
+            border-bottom: 1px solid var(--stone-mid);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 2rem;
+        }
+
+        /* Header Section */
+        .showcase-header {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            background: var(--stone-light);
+        }
+
+        .showcase-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .showcase-header p {
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--accent-bronze);
+            font-size: 0.8rem;
+        }
+
+        /* Expanded Product Grid */
+        .product-catalog {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            display: block;
+            color: var(--accent-bronze);
+            border-bottom: 1px solid var(--stone-mid);
+            padding-bottom: 1rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 6rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 1.5rem 0;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-bronze);
+        }
+
+        /* Footer */
+        footer {
+            padding: 5rem 5%;
+            background-color: var(--stone-mid);
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-header h1 { font-size: 2.5rem; }
+            .catalog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">MICHAELSON EMMANUEL</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="showcase-header">
+        <h1>Product Showcase</h1>
+        <p>Full Export Collection</p>
+    </header>
+
+    <main class="product-catalog">
+        
+        <span class="category-label">Woven Tops & Bottoms</span>
+        <div class="catalog-grid">
+            <div class="product-card">
+                <img src="7564153-Navy-1_1605x.webp" alt="Navy Shirt">
+                <div class="product-info">
+                    <h3>Executive Navy Woven</h3>
+                    <span>Woven Tops</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="7664502-Copper-1_1605x.webp" alt="Copper Shirt">
+                <div class="product-info">
+                    <h3>Classic Copper Check</h3>
+                    <span>Woven Tops</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="placeholder-bottom.jpg" alt="Bottoms">
+                <div class="product-info">
+                    <h3>Technical Chino</h3>
+                    <span>Woven Bottoms</span>
+                </div>
+            </div>
+        </div>
+
+        <span class="category-label">Jersey Items</span>
+        <div class="catalog-grid">
+            <div class="product-card">
+                <img src="placeholder-jersey.jpg" alt="Jersey">
+                <div class="product-info">
+                    <h3>Premium Cotton Tee</h3>
+                    <span>Jersey Collection</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p class="copyright">&copy; 2026 Michaelson Emmanuel Sourcing. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
